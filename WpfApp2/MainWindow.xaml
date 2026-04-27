@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="600" Width="500" Background="Gray">
+        Title="Калькулятор" Height="600" Width="700" Background="Gray">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -40,22 +40,23 @@
                  Height="80" 
                  VerticalAlignment="Bottom" 
                  Background="White"
-                 GotFocus="got"/>
-        <Button x:Name="n7" Content="7" Grid.Column="0" Grid.Row="1" />
-        <Button x:Name="n8" Content="8" Grid.Column="1" Grid.Row="1" />
-        <Button x:Name="n9" Content="9" Grid.Column="2" Grid.Row="1" />
-        <Button x:Name="C" Content="C" Grid.Column="3" Grid.Row="1" />
-        <Button x:Name="n4" Content="4" Grid.Column="0" Grid.Row="2" />
-        <Button x:Name="n5" Content="5" Grid.Column="1" Grid.Row="2" />
-        <Button x:Name="n6" Content="6" Grid.Column="2" Grid.Row="2" />
-        <Button x:Name="Plus" Content="+" Grid.Column="3" Grid.Row="2" />
-        <Button x:Name="n1" Content="1" Grid.Column="0" Grid.Row="3" />
-        <Button x:Name="n2" Content="2" Grid.Column="1" Grid.Row="3" />
-        <Button x:Name="n3" Content="3" Grid.Column="2" Grid.Row="3" />
-        <Button x:Name="Minus" Content="-" Grid.Column="3" Grid.Row="3" />
-        <Button x:Name="n0" Content="0" Grid.Column="0" Grid.Row="4" />
-        <Button x:Name="Equal" Content="=" Grid.Column="1" Grid.Row="4" />
-        <Button x:Name="Umn" Content="*" Grid.Column="2" Grid.Row="4" />
-        <Button x:Name="Del" Content="/" Grid.Column="3" Grid.Row="4" />
+                 GotFocus="got"
+                 IsReadOnly="True"/>
+        <Button x:Name="n7" Content="7" Grid.Column="0" Grid.Row="1" Click="ClickButton" />
+        <Button x:Name="n8" Content="8" Grid.Column="1" Grid.Row="1" Click="ClickButton"/>
+        <Button x:Name="n9" Content="9" Grid.Column="2" Grid.Row="1" Click="ClickButton"/>
+        <Button x:Name="C" Content="C" Grid.Column="3" Grid.Row="1" Click="ClickButton"/>
+        <Button x:Name="n4" Content="4" Grid.Column="0" Grid.Row="2" Click="ClickButton"/>
+        <Button x:Name="n5" Content="5" Grid.Column="1" Grid.Row="2" Click="ClickButton"/>
+        <Button x:Name="n6" Content="6" Grid.Column="2" Grid.Row="2" Click="ClickButton"/>
+        <Button x:Name="Plus" Content="+" Grid.Column="3" Grid.Row="2" Click="ClickButton"/>
+        <Button x:Name="n1" Content="1" Grid.Column="0" Grid.Row="3" Click="ClickButton"/>
+        <Button x:Name="n2" Content="2" Grid.Column="1" Grid.Row="3" Click="ClickButton"/>
+        <Button x:Name="n3" Content="3" Grid.Column="2" Grid.Row="3" Click="ClickButton"/>
+        <Button x:Name="Minus" Content="-" Grid.Column="3" Grid.Row="3" Click="ClickButton"/>
+        <Button x:Name="n0" Content="0" Grid.Column="0" Grid.Row="4" Click="ClickButton"/>
+        <Button x:Name="Equal" Content="=" Grid.Column="1" Grid.Row="4" Click="ClickButton"/>
+        <Button x:Name="Umn" Content="*" Grid.Column="2" Grid.Row="4" Click="ClickButton"/>
+        <Button x:Name="Del" Content="/" Grid.Column="3" Grid.Row="4" Click="ClickButton"/>
     </Grid>
 </Window>
