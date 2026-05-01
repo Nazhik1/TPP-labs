@@ -21,7 +21,6 @@
             <Button x:Name="del" Content="Удалить" Height="25" Grid.Column="0" Grid.Row="0" Click="Del"/>
         </StackPanel>
         <ListBox x:Name="Zam" Grid.Column="0" Grid.Row="1" Height="auto" Width="auto" FontSize="20">
-            <ListBoxItem Height="40">Заметка1</ListBoxItem>
         </ListBox>
         <TextBox Text="Название" Grid.Row="0" Grid.Column="1" FontSize="40" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
         <TextBox Text="Заметка текст" Grid.Row="1" Grid.Column="1" FontSize="40" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
