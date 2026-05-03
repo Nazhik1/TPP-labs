@@ -25,6 +25,7 @@ namespace WpfApp3
 
         private string currentFilePath;
         private string filesFolder;
+        private int n = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +37,27 @@ namespace WpfApp3
 
         public void Del(object sender, RoutedEventArgs e)
         {
-            Zam.Items.Remove(Zam.SelectedItem);
+                MessageBoxResult result = MessageBox.Show(
+                "Вы уверены, что хотите удалить этот элемент?",
+                "Подтверждение удаления",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Del1();
+                }
+        }
+
+        public void Del1()
+        {
+            if (Zam.SelectedItem != null)
+            {
+                string fileName = Zam.SelectedItem.ToString();
+                string fullPath = Path.Combine(filesFolder, fileName) + ".txt";
+                File.Delete(fullPath);
+                LoadFile();
+            }       
+            
         }
         public void LoadFile()
         {
@@ -46,15 +67,28 @@ namespace WpfApp3
 
             foreach (string file in txtFiles)
             {
-                Zam.Items.Add(System.IO.Path.GetFileName(file));
+                string files = file.Remove(file.Length - 4);
+                Zam.Items.Add(System.IO.Path.GetFileName(files));
             }
         }
         private void Add(object sender, RoutedEventArgs e)
         {
-            string fileName = "отчёт.txt";
-            string fullPath = Path.Combine(filesFolder, fileName);
-
-            File.WriteAllText(fullPath, "");
+            while (n > 0)
+            {
+                string fileName = "Заметка" + n.ToString() + ".txt";
+                string fullPath = Path.Combine(filesFolder, fileName);
+                if (File.Exists(fullPath))
+                {
+                    n += 1;
+                }
+                else
+                {
+                    File.WriteAllText(fullPath, "");
+                    break;
+                }
+            }
+            LoadFile();
+            n += 1;
         }
     }
 }
