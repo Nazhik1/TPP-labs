@@ -20,9 +20,10 @@
             <Button x:Name="add" Content="Добавить" Height="25" Grid.Column="0" Grid.Row="0" Click="Add"/>
             <Button x:Name="del" Content="Удалить" Height="25" Grid.Column="0" Grid.Row="0" Click="Del"/>
         </StackPanel>
-        <ListBox x:Name="Zam" Grid.Column="0" Grid.Row="1" Height="auto" Width="auto" FontSize="20">
+        <ListBox x:Name="Zam" Grid.Column="0" Grid.Row="1" Height="auto" Width="auto" FontSize="20" SelectionChanged="Change">
         </ListBox>
-        <TextBox Text="Название" Grid.Row="0" Grid.Column="1" FontSize="40" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
-        <TextBox Text="Заметка текст" Grid.Row="1" Grid.Column="1" FontSize="40" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="Name" Text="Ничего не выбрано" Grid.Row="0" Grid.Column="1" FontSize="40" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" IsEnabled="False"/>
+        <Button Grid.Row="0" Grid.Column="1" Height="50" Width="80" HorizontalAlignment="Right" Content="Сохранить" FontSize="15" Click="Save"/>
+        <TextBox x:Name="Zametka" Text="" Grid.Row="1" Grid.Column="1" FontSize="40" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" IsEnabled="False"/>
     </Grid>
 </Window>

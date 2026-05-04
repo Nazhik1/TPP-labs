@@ -23,7 +23,6 @@ namespace WpfApp3
     public partial class MainWindow : Window
     {
 
-        private string currentFilePath;
         private string filesFolder;
         private int n = 1;
         public MainWindow()
@@ -37,6 +36,8 @@ namespace WpfApp3
 
         public void Del(object sender, RoutedEventArgs e)
         {
+            if (Zam.SelectedItem != null)
+            {
                 MessageBoxResult result = MessageBox.Show(
                 "Вы уверены, что хотите удалить этот элемент?",
                 "Подтверждение удаления",
@@ -46,24 +47,22 @@ namespace WpfApp3
                 {
                     Del1();
                 }
+            }
         }
 
         public void Del1()
         {
-            if (Zam.SelectedItem != null)
-            {
-                string fileName = Zam.SelectedItem.ToString();
-                string fullPath = Path.Combine(filesFolder, fileName) + ".txt";
-                File.Delete(fullPath);
-                LoadFile();
-            }       
-            
+            string fileName = Zam.SelectedItem.ToString();
+            string fullPath = Path.Combine(filesFolder, fileName) + ".txt";
+            File.Delete(fullPath);
+            LoadFile();
+
         }
         public void LoadFile()
         {
             Zam.Items.Clear();
             string[] txtFiles = Directory.GetFiles(filesFolder, "*.txt");
- 
+
 
             foreach (string file in txtFiles)
             {
@@ -89,6 +88,45 @@ namespace WpfApp3
             }
             LoadFile();
             n += 1;
+        }
+
+        public void Change(object sender, RoutedEventArgs e)
+        {
+            if (Zam.SelectedItem != null)
+            {
+                Name.IsEnabled=true;
+                Zametka.IsEnabled=true;
+                Name.Text = Zam.SelectedItem.ToString();
+                string fileName = Zam.SelectedItem.ToString();
+                string fullPath = Path.Combine(filesFolder, fileName) + ".txt";
+                Zametka.Text = File.ReadAllText(fullPath);
+            }
+            else
+            { 
+                Name.Text = "Ничего не выбрано";
+                Name.IsEnabled = false;
+                Zametka.IsEnabled = false;
+            }
+        }
+
+        public void Save(object sender, RoutedEventArgs e)
+        {
+            if (Name.Text == null || Name.Text=="" || Name.IsEnabled==false)
+            {
+                MessageBox.Show("Выберите заметку и дайте ей название");
+            }
+            else if (Zam.SelectedItem != null)
+            {
+                string namezam = Name.Text;
+                string zam = Zametka.Text;
+                string fileName = Zam.SelectedItem.ToString();
+                string old = Path.Combine(filesFolder, fileName) + ".txt";
+                string neww = Path.Combine(filesFolder, namezam) + ".txt";
+                File.Move(old, neww);
+                File.WriteAllText(neww, zam);
+                Zametka.Text = "";
+                LoadFile();
+            }
         }
     }
 }
