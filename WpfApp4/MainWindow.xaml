@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800
+        " Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock x:Name="A" Text="Кол-во попыток:" FontSize="50" />
+            <TextBlock x:Name="Try" Text="{Binding _Try}" FontSize="50" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+            <Button x:Name="NewGame" Content="Новая игра" Height="100" FontSize="50" Margin="10" Click="NewGame_Click"/>
+            <TextBlock Text="Загаданное число:" FontSize="40" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding X}" FontSize="50" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
+        <TextBlock x:Name="Vvod" Text="Введите число:" FontSize="50" Margin="10"/>
+        <TextBox x:Name="Number" Text="" FontSize="50" VerticalAlignment="Center" Background="WhiteSmoke" Margin="10" />
+            <Button x:Name="Sav" Content="Сохранить" Height="100" FontSize="50" Margin="10" Click="ButtonSave_Click" IsEnabled="True" />
+        </StackPanel>
+        
+        <TextBlock x:Name="Result" Text="{Binding _Result}" Grid.Column="1" Grid.Row="1" FontSize="50" VerticalAlignment="Center" Width="auto"  TextAlignment="Center" Background="WhiteSmoke"/>
+
+    </Grid>
+</Window>
