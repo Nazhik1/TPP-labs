@@ -110,5 +110,4 @@ namespace WpfApp4
             Number.Text = "";
         }
     }
-
 }
