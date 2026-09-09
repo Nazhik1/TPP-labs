@@ -24,6 +24,14 @@ namespace WpfApp5
         public MainWindow()
         {
             InitializeComponent();
+
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.New,
+                (s, e) => NewFile_Click(s, e)));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Open,
+                (s, e) => OpenFile_Click(s, e)));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Save,
+                (s, e) => SaveFile_Click(s, e)));
+
             UpdateTitle();
         }
 
