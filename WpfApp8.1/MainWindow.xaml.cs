@@ -33,7 +33,6 @@ namespace WpfApp8._1
             UpdateTitle();
         }
 
-        // ===== Смена языка =====
         private void SetRussian_Click(object sender, RoutedEventArgs e)
         {
             Loc.Culture = new CultureInfo("ru");
@@ -44,7 +43,6 @@ namespace WpfApp8._1
             Loc.Culture = new CultureInfo("en");
         }
 
-        // ===== Файл =====
         private void NewFile_Click(object sender, RoutedEventArgs e)
         {
             if (!ConfirmSave()) return;
@@ -94,7 +92,6 @@ namespace WpfApp8._1
         private void SaveAsFile_Click(object sender, RoutedEventArgs e) => SaveAsDocument();
         private void Exit_Click(object sender, RoutedEventArgs e) => Close();
 
-        // ===== Сохранение =====
         private bool SaveDocument()
         {
             if (currentFilePath == null) return SaveAsDocument();
@@ -136,7 +133,6 @@ namespace WpfApp8._1
             }
         }
 
-        // ===== Изменения текста =====
         private void MainTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (suppressTextChanged || isModified) return;
@@ -144,7 +140,6 @@ namespace WpfApp8._1
             UpdateTitle();
         }
 
-        // ===== Подтверждение =====
         private bool ConfirmSave()
         {
             if (!isModified) return true;
@@ -168,7 +163,6 @@ namespace WpfApp8._1
             }
         }
 
-        // ===== Заголовок =====
         private void UpdateTitle()
         {
             string fileName = currentFilePath != null
